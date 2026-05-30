@@ -1,2 +1,2 @@
 # w3dding
-place to store data
+place to store wedding related material
