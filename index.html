@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issac & Cenz Wedding RSVP & Links</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Sniglet, Iansui, Schoolbell -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Iansui&family=Sniglet:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Schoolbell&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom Font Definitions */
+        .schoolbell-regular {
+            font-family: "Schoolbell", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .iansui-regular {
+            font-family: "Iansui", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .sniglet-regular {
+            font-family: "Sniglet", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        /* Default fonts cascading Sniglet to Iansui for dual-language glyph representation */
+        .font-serif, .font-sans, body {
+            font-family: 'Sniglet', 'Iansui', sans-serif !important;
+        }
+
+        /* Champagne watercolor gradient backing */
+        .bg-shimmer {
+            background: linear-gradient(135deg, #fbf9f4 0%, #f3ede2 100%);
+            position: relative;
+        }
+
+        /* Transparent Illustrated Map Background Pattern layer */
+        .bg-shimmer::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('media/illustrated_map.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Ring animation for interactive links */
+        @keyframes ring-pause {
+            0%, 20%, 100% { transform: rotate(0deg); }
+            5%, 15% { transform: rotate(-10deg); }
+            10% { transform: rotate(10deg); }
+        }
+
+        .animate-ring {
+            animation: ring-pause 2.5s infinite ease-in-out;
+            transform-origin: center;
+        }
+
+        /* Wedding Diamond Ring Cursor style */
+        body, a, button, label, select, input {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='24' font-size='24'>💍</text></svg>") 16 16, auto !important;
+        }
+    </style>
+</head>
+<body class="bg-shimmer font-sans text-stone-850 min-h-screen flex flex-col justify-between p-4 sm:p-6">
+
+    <!-- Decorative Top Luxury Bar -->
+    <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-amber-100 via-amber-300 to-amber-100 z-20"></div>
+
+    <!-- Main Linktree Hub Container -->
+    <main class="max-w-md w-full mx-auto my-auto bg-white/95 backdrop-blur-md rounded-[32px] p-5 sm:p-7 shadow-[0_24px_60px_rgba(139,115,85,0.08)] border border-amber-100/40 flex flex-col items-center text-center relative overflow-hidden z-10 my-4">
+
+        <!-- Elegant Corner Flourishes (SVG Vector Art) -->
+        <div class="absolute top-0 left-0 w-16 h-16 opacity-15 text-amber-800 pointer-events-none">
+            <svg viewBox="0 0 100 100" class="w-full h-full fill-current">
+                <path d="M0,0 C30,0 50,20 50,50 C20,50 0,30 0,0" />
+            </svg>
+        </div>
+        <div class="absolute top-0 right-0 w-16 h-16 opacity-15 text-amber-800 pointer-events-none rotate-90">
+            <svg viewBox="0 0 100 100" class="w-full h-full fill-current">
+                <path d="M0,0 C30,0 50,20 50,50 C20,50 0,30 0,0" />
+            </svg>
+        </div>
+
+        <!-- Header: Wedding Couple Banner Picture -->
+        <header class="w-full space-y-4 mb-5 z-10">
+            <div class="relative w-full aspect-[3/2] mx-auto mb-2">
+                <div class="absolute inset-0 bg-amber-100 rounded-2xl scale-[1.03] blur-sm opacity-40"></div>
+                <img class="relative w-full h-full rounded-2xl border-4 border-white shadow-lg object-cover"
+                     src="media/Issac_Cenz-401-evo-ps.jpg"
+                     alt="Issac & Cenz Wedding"
+                     onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=400&q=80'">
+            </div>
+
+            <div class="space-y-1 mb-2">
+                <h1 class="schoolbell-regular text-3xl sm:text-4xl text-stone-700 tracking-tight my-2">Issac & Cenz</h1>
+                <p class="text-xs sm:text-sm uppercase tracking-[0.25em] font-semibold text-amber-700">我們結婚了！ • Are Getting Married</p>
+            </div>
+
+            <!-- Essential Information Header Badge -->
+            <div class="py-3 px-4 bg-stone-50/90 rounded-2xl border border-stone-100 w-full text-sm text-stone-600 space-y-1">
+                <p class="font-semibold text-stone-850 text-sm sm:text-base">2026年6月29日 (星期一) • Mon, June 29, 2026</p>
+                <p class="text-xs text-stone-500">War Memorial Building, Harrow School</p>
+            </div>
+        </header>
+
+        <!-- Core Linktree Stack with exactly 2 links -->
+        <section class="w-full space-y-4 z-10 mb-4">
+
+            <!-- Link 1: RSVP Button -->
+            <a href="https://cenzwong.github.io/w3dding-rsvp" target="_blank" rel="noopener noreferrer"
+               class="flex items-center justify-between p-4 bg-white border border-stone-200/80 rounded-2xl shadow-sm hover:border-amber-350 hover:bg-amber-50/20 active:scale-[0.98] transition-all">
+                <div class="flex items-center gap-3 text-left">
+                    <span class="text-lg text-rose-500 animate-ring">🎟️</span>
+                    <div>
+                        <span class="block text-sm font-bold text-stone-800 leading-none mb-1">線上登記出席 (回覆邀請)</span>
+                        <span class="block text-xs text-stone-500 leading-none font-medium">Online RSVP • cenzwong.github.io/w3dding-rsvp</span>
+                    </div>
+                </div>
+                <span class="text-xs text-stone-450 font-bold">➔</span>
+            </a>
+
+            <!-- Link 2: Download Invitation PDF -->
+            <a href="https://cenzwong.github.io/w3dding-rsvp/invitation.pdf" target="_blank" rel="noopener noreferrer"
+               class="flex items-center justify-between p-4 bg-white border border-stone-200/80 rounded-2xl shadow-sm hover:border-amber-350 hover:bg-amber-50/20 active:scale-[0.98] transition-all">
+                <div class="flex items-center gap-3 text-left">
+                    <span class="text-lg text-emerald-600">✉️</span>
+                    <div>
+                        <span class="block text-sm font-bold text-stone-800 leading-none mb-1">下載婚禮邀請函 (PDF)</span>
+                        <span class="block text-xs text-stone-500 leading-none font-medium">Download Invitation PDF</span>
+                    </div>
+                </div>
+                <span class="text-xs text-stone-450 font-bold">➔</span>
+            </a>
+
+        </section>
+
+    </main>
+
+    <!-- Clean, Delicate Footer Details -->
+    <footer class="text-center py-4 space-y-2 z-10">
+        <p class="text-[10px] font-bold tracking-[0.22em] text-stone-400 uppercase">
+            Issac & Cenz • 2026年6月29日 • June 29, 2026
+        </p>
+    </footer>
+
+</body>
+</html>
