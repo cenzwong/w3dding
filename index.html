@@ -21,8 +21,8 @@
         }
 
         body {
-            background-color: #0a0a0a;
-            color: #f5f5f5;
+            background-color: #FFFFFF; /* Stark White */
+            color: #000000; /* Absolute Black */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -31,15 +31,18 @@
             font-family: var(--font-sans-en);
             text-transform: uppercase;
             letter-spacing: 0.15em;
+            font-weight: 700;
         }
 
         .tier-2 {
             font-family: var(--font-serif-en);
+            font-weight: 400;
         }
 
         .tier-3 {
             font-family: var(--font-condensed);
             letter-spacing: 0.05em;
+            font-weight: 500;
         }
 
         .tc-sans {
@@ -50,86 +53,115 @@
             font-family: var(--font-serif-tc);
         }
 
-        .monochrome-img {
-            filter: grayscale(100%) contrast(1.1);
+        .accent-cream {
+            background-color: #FDFBF7; /* Warm Cream */
         }
 
-        .accent-color {
-            color: #d6d0c4; /* Desaturated stone / beige */
+        .accent-slate {
+            background-color: #F4F5F7; /* Soft Slate */
+        }
+
+        .accent-ash {
+            color: #F5EBEA; /* Rose Ash */
+        }
+
+        .accent-sage {
+            color: #EAEFEA; /* Pale Sage */
+        }
+
+        .text-rose-ash-darker {
+            /* Since #F5EBEA is very light, we might need a slightly darker variant for text readability on white, but per style guide we use absolute black for text mostly.
+               We will use soft slate/cream for backgrounds. */
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col md:flex-row">
+<body class="min-h-screen flex flex-col md:flex-row bg-white">
 
     <!-- Image Pane -->
-    <div class="w-full md:w-1/2 h-[50vh] md:h-screen relative overflow-hidden border-b md:border-b-0 md:border-r border-stone-900">
-        <img src="media/Issac_Cenz-401-evo-ps.jpg" alt="Issac & Cenz" class="absolute inset-0 w-full h-full object-cover monochrome-img opacity-70">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+    <div class="w-full md:w-1/2 h-[50vh] md:min-h-screen relative overflow-hidden border-b md:border-b-0 md:border-r border-black/10">
+        <img src="media/Issac_Cenz-401-evo-ps.jpg" alt="Issac & Cenz" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-white/10"></div>
     </div>
 
     <!-- Content Pane -->
-    <div class="w-full md:w-1/2 min-h-[50vh] md:h-screen flex flex-col justify-between p-8 md:p-16 lg:p-24 bg-[#0a0a0a]">
+    <div class="w-full md:w-1/2 min-h-[50vh] md:min-h-screen flex flex-col justify-between p-8 md:p-16 lg:p-24 bg-white">
 
         <div class="space-y-16">
             <!-- Header Block -->
             <div class="space-y-6">
-                <h1 class="tc-serif text-3xl md:text-4xl font-normal tracking-wider text-white">我們結婚了！</h1>
-                <h2 class="tier-1 text-4xl md:text-5xl font-bold text-white tracking-[0.2em] leading-tight">ISSAC <span class="text-stone-600">&</span> CENZ</h2>
-                <p class="tier-2 italic text-lg md:text-xl accent-color">Are Getting Married</p>
+                <!-- Bilingual Parity: Chinese first, English translation on immediate line break -->
+                <h1 class="tc-serif text-3xl md:text-4xl font-normal tracking-wider text-black">
+                    我們結婚了！<br>
+                    <span class="tier-2 italic text-xl md:text-2xl text-black/70 mt-2 block">Are Getting Married</span>
+                </h1>
+
+                <h2 class="tier-1 text-4xl md:text-5xl text-black tracking-[0.2em] leading-tight mt-8">ISSAC <span class="text-black/50">&</span> CENZ</h2>
             </div>
 
             <!-- Date & Location Block -->
-            <div class="space-y-3 border-l border-stone-800 pl-6">
-                <p class="tc-sans text-sm tracking-[0.15em] text-stone-300">2026年6月29日(星期一)</p>
-                <p class="tier-3 text-xs tracking-widest text-stone-500 uppercase">2026.06.29 | War Memorial Building, Harrow School</p>
+            <!-- Bilingual Parity & Formal Informational Block -->
+            <div class="space-y-3 border-l-[1px] border-black pl-6">
+                <p class="tc-sans text-sm tracking-[0.15em] text-black/80">
+                    2026年6月29日(星期一) <span class="mx-2">|</span> <span class="tier-3 text-xs tracking-widest uppercase">2026.06.29</span>
+                </p>
+                <p class="tier-3 text-xs tracking-widest text-black/60 uppercase">
+                    War Memorial Building, Harrow School
+                </p>
             </div>
 
             <!-- Navigation Links -->
-            <nav>
+            <nav class="space-y-8">
+                <!-- Primary Action -->
                 <ul class="flex flex-col space-y-0">
-                    <li>
-                        <a href="https://cenzwong.github.io/w3dding-rsvp" target="_blank" rel="noopener noreferrer" class="group block py-6 border-b border-stone-800 hover:border-stone-500 transition-colors duration-500">
+                    <li class="accent-slate hover:bg-[#EAEFEA] transition-colors duration-500">
+                        <a href="https://cenzwong.github.io/w3dding-gallery/" target="_blank" rel="noopener noreferrer" class="group block py-6 px-4 border-l-2 border-transparent hover:border-black transition-all duration-500">
                             <div class="flex justify-between items-center">
                                 <div class="space-y-2">
-                                    <h3 class="tc-sans text-lg tracking-[0.1em] text-stone-300 group-hover:text-white transition-colors duration-500">線上登記出席</h3>
-                                    <p class="tier-3 text-xs text-stone-500 uppercase group-hover:text-stone-400 transition-colors duration-500">Online RSVP</p>
+                                    <h3 class="tc-sans text-lg tracking-[0.1em] text-black">瀏覽婚紗相集 <span class="text-black/30 mx-2">|</span> <span class="tier-3 text-xs text-black/60 uppercase group-hover:text-black transition-colors duration-500">View Wedding Gallery</span></h3>
                                 </div>
-                                <span class="tier-1 text-stone-700 group-hover:text-white transform group-hover:translate-x-2 transition-all duration-500">→</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://cenzwong.github.io/w3dding-rsvp/invitation.pdf" target="_blank" rel="noopener noreferrer" class="group block py-6 border-b border-stone-800 hover:border-stone-500 transition-colors duration-500">
-                            <div class="flex justify-between items-center">
-                                <div class="space-y-2">
-                                    <h3 class="tc-sans text-lg tracking-[0.1em] text-stone-300 group-hover:text-white transition-colors duration-500">下載婚禮邀請函</h3>
-                                    <p class="tier-3 text-xs text-stone-500 uppercase group-hover:text-stone-400 transition-colors duration-500">Download Invitation PDF</p>
-                                </div>
-                                <span class="tier-1 text-stone-700 group-hover:text-white transform group-hover:translate-x-2 transition-all duration-500">→</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://cenzwong.github.io/w3dding-gallery/" target="_blank" rel="noopener noreferrer" class="group block py-6 border-b border-stone-800 hover:border-stone-500 transition-colors duration-500">
-                            <div class="flex justify-between items-center">
-                                <div class="space-y-2">
-                                    <h3 class="tc-sans text-lg tracking-[0.1em] text-stone-300 group-hover:text-white transition-colors duration-500">瀏覽婚紗相集</h3>
-                                    <p class="tier-3 text-xs text-stone-500 uppercase group-hover:text-stone-400 transition-colors duration-500">View Wedding Gallery</p>
-                                </div>
-                                <span class="tier-1 text-stone-700 group-hover:text-white transform group-hover:translate-x-2 transition-all duration-500">→</span>
+                                <span class="tier-1 text-black/40 group-hover:text-black transform group-hover:translate-x-2 transition-all duration-500">→</span>
                             </div>
                         </a>
                     </li>
                 </ul>
+
+                <!-- Archive Section -->
+                <div class="pt-4 border-t border-black/10">
+                    <h3 class="tc-sans text-xs tracking-[0.15em] text-black/40 mb-4 uppercase">
+                        過往紀錄 <span class="mx-2">|</span> <span class="tier-3">Archive</span>
+                    </h3>
+                    <ul class="flex flex-col space-y-0">
+                        <li class="accent-slate hover:bg-[#EAEFEA] transition-colors duration-500 mb-2 opacity-80 hover:opacity-100">
+                            <a href="https://cenzwong.github.io/w3dding-rsvp" target="_blank" rel="noopener noreferrer" class="group block py-5 px-4 border-l-2 border-transparent hover:border-black transition-all duration-500">
+                                <div class="flex justify-between items-center">
+                                    <div class="space-y-2">
+                                        <h3 class="tc-sans text-base tracking-[0.1em] text-black">線上登記出席 <span class="text-black/30 mx-2">|</span> <span class="tier-3 text-[10px] text-black/60 uppercase group-hover:text-black transition-colors duration-500">Online RSVP</span></h3>
+                                    </div>
+                                    <span class="tier-1 text-sm text-black/40 group-hover:text-black transform group-hover:translate-x-2 transition-all duration-500">→</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="accent-slate hover:bg-[#EAEFEA] transition-colors duration-500 opacity-80 hover:opacity-100">
+                            <a href="https://cenzwong.github.io/w3dding-rsvp/invitation.pdf" target="_blank" rel="noopener noreferrer" class="group block py-5 px-4 border-l-2 border-transparent hover:border-black transition-all duration-500">
+                                <div class="flex justify-between items-center">
+                                    <div class="space-y-2">
+                                        <h3 class="tc-sans text-base tracking-[0.1em] text-black">下載婚禮邀請函 <span class="text-black/30 mx-2">|</span> <span class="tier-3 text-[10px] text-black/60 uppercase group-hover:text-black transition-colors duration-500">Download Invitation PDF</span></h3>
+                                    </div>
+                                    <span class="tier-1 text-sm text-black/40 group-hover:text-black transform group-hover:translate-x-2 transition-all duration-500">→</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
         </div>
 
         <!-- Footer -->
-        <div class="mt-16 md:mt-0 pt-8 flex items-center justify-between border-t border-stone-900">
-            <p class="tier-3 text-[10px] tracking-[0.25em] text-stone-600 uppercase">
+        <div class="mt-16 md:mt-0 pt-8 flex items-center justify-between border-t-[1px] border-black/10">
+            <p class="tier-3 text-[10px] tracking-[0.25em] text-black/50 uppercase">
                 Issac & Cenz
             </p>
-            <p class="tier-3 text-[10px] tracking-[0.25em] text-stone-600 uppercase">
+            <p class="tier-3 text-[10px] tracking-[0.25em] text-black/50 uppercase">
                 2026.06.29
             </p>
         </div>
