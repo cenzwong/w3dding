@@ -142,6 +142,16 @@
                         </div>
                     </li>
                     <li class="accent-slate hover:bg-[#EAEFEA] transition-colors duration-500">
+                        <button id="video-trigger" class="w-full text-left group block py-6 px-4 border-l-2 border-transparent hover:border-black transition-all duration-500 cursor-pointer">
+                            <div class="flex justify-between items-center">
+                                <div class="space-y-2">
+                                    <h3 class="tc-sans text-lg tracking-[0.1em] text-black">成長片段 <span class="text-black/30 mx-2">|</span> <span class="tier-3 text-xs text-black/60 uppercase group-hover:text-black transition-colors duration-500">Childhood Montage</span></h3>
+                                </div>
+                                <span class="tier-1 text-black/40 group-hover:text-black transform group-hover:translate-x-2 transition-all duration-500">→</span>
+                            </div>
+                        </button>
+                    </li>
+                    <li class="accent-slate hover:bg-[#EAEFEA] transition-colors duration-500">
                         <a href="https://cenzwong.github.io/w3dding-gallery/" target="_blank" rel="noopener noreferrer" class="group block py-6 px-4 border-l-2 border-transparent hover:border-black transition-all duration-500">
                             <div class="flex justify-between items-center">
                                 <div class="space-y-2">
@@ -196,5 +206,65 @@
 
     </div>
 
+    <!-- Video Modal -->
+    <div id="video-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 opacity-0 pointer-events-none transition-opacity duration-500">
+        <div class="relative w-full max-w-5xl px-4 md:px-8">
+            <div class="relative pb-[56.25%] h-0 overflow-hidden shadow-2xl">
+                <iframe id="video-iframe" class="absolute top-0 left-0 w-full h-full" src="" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <!-- Optional close hint, though clicking outside will close it -->
+            <div class="absolute -top-10 right-4 md:right-8 flex items-center space-x-2 text-white/60 hover:text-white cursor-pointer transition-colors" id="close-modal-btn">
+                <span class="tc-sans text-sm tracking-widest">關閉 <span class="mx-2">|</span> <span class="tier-3 text-xs uppercase">Close</span></span>
+                <span class="text-xl leading-none">&times;</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoTrigger = document.getElementById('video-trigger');
+            const videoModal = document.getElementById('video-modal');
+            const videoIframe = document.getElementById('video-iframe');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+
+            const videoUrl = "https://www.youtube.com/embed/5qGyhao6hpk?autoplay=1";
+
+            function openModal() {
+                videoIframe.src = videoUrl;
+                videoModal.classList.remove('opacity-0', 'pointer-events-none');
+            }
+
+            function closeModal() {
+                videoModal.classList.add('opacity-0', 'pointer-events-none');
+                // Remove src after transition to stop playback
+                setTimeout(() => {
+                    videoIframe.src = "";
+                }, 500);
+            }
+
+            if (videoTrigger && videoModal && videoIframe) {
+                videoTrigger.addEventListener('click', openModal);
+
+                // Close when clicking outside the video container
+                videoModal.addEventListener('click', (e) => {
+                    if (e.target === videoModal) {
+                        closeModal();
+                    }
+                });
+
+                if (closeModalBtn) {
+                    closeModalBtn.addEventListener('click', closeModal);
+                }
+
+                // Close on Escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && !videoModal.classList.contains('pointer-events-none')) {
+                        closeModal();
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
